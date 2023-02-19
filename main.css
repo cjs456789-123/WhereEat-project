@@ -1,0 +1,16 @@
+.contentBox{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+  
+}
+
+.contentBox {
+  -webkit-overflow-scrolling: touch;
+  
+}
+
+.contentBox ::-webkit-scrollbar {
+      display: none;
+}
