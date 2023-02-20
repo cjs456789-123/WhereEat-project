@@ -1,7 +1,16 @@
+.curationName{
+  color:black;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: -5px;
+}
+
 .contentBox{
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+
+    justify-content: space-between;
 
   
 }
