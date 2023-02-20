@@ -194,9 +194,9 @@
                         placeOverlay.setMap(map); 
                         
                     //각각 정보에 맞는 id를 통해서 연결시키면 될 것 같습니다.
-                        document.getElementById(position.place_name).className="greenBorder";
-                        document.getElementById(position.place_name).scrollIntoView({behavior:"smooth"});
-
+                        content.innerHTML=document.getElementById(position.place_name).className="greenBorder";
+                        content.innerHTML=document.getElementById(position.place_name).scrollIntoView({behavior:"smooth"});
+                        
                     }
                 </script>
 
