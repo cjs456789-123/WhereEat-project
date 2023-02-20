@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="page-enter" content="blendTrans(duration=0.3)">
+    <meta http-equiv="page-exit" content="blendTrans(duration=0.3)">
     <link rel="stylesheet" href="./css/style.css"/>
     <link rel="stylesheet" href="./css/map.css"/>
     <link rel="stylesheet" href="./css/main.css"/>
@@ -16,31 +18,39 @@
     <div id ="root">
         <div class="wrapper">
             <header id="header">
-                <h1 class="title">WHERE EAT</h1>
-                <h3 class="subTitle">성대한 한끼를 위하여</h3>
+                <div>
+                    <a href="main.html">
+                        <h1 class="title">WHERE EAT</h1>
+                    </a>
+                </div>
+                <div>
+                    <h3 class="subTitle">성대한 한끼를 위하여</h3>
+                </div>
             </header>
             <main id ="main">
-                <div id="map" style="width:100%; height:375px; margin-top:15px;">
-            
-                    <!-- <div id="detailInfoBox" >
-                        <div class="detailTitle">상호명</div>
-                        <div><img src="" style="width: 120px; height: 120px; margin: 8px 0px;"></div>
-                        <div class="detailContent" style="margin-bottom: 2px; color: #8DC63F;">영업중</div>
-                        <div class="detailContent" style="color: #7C7A7A;">440m</div>
-                    </div> -->
-                    
+                <div id="map" style="width:100%; height:375px; margin-top:15px;">            
                 </div>
                 <div class="curation" style="margin-left: 0px">
                     <div>
                         <h3 class="curationName" style="float:left; margin-top: 0;">혼밥도 든든하게</h3>
                     </div>
-                    <div id="lstBtn" onclick="routeToListPage()">
-                        <img  src="./img/lstBtn.png" style="float:right; margin-right: 10px;">
+                    <div id="lstBtn">
+                        <a href="listup.html">
+                            <img  src="./img/lstBtn.png" style="float:right; margin-right: 10px;">
+                        </a>
                     </div>
                     <div style="clear:both;"></div>
                 
                     <div class="contentBox">
-                        <div class="content" onclick="routeToDetailPage()">
+                        <div class="content" id="경영관" onclick="routeToDetailPage()">
+                            <div>
+                                <h3 class="placeName">경영관</h3>
+                            </div>
+                            <div class="placePhoto">
+                                <img class="img" src="./img/ttt.png" alt="">
+                            </div>
+                        </div>
+                        <div class="content" id="호암관">
                             <div>
                                 <h3 class="placeName">ttt</h3>
                             </div>
@@ -48,7 +58,7 @@
                                 <img class="img" src="./img/ttt.png" alt="">
                             </div>
                         </div>
-                        <div class="content">
+                        <div class="content" id="학생회관">
                             <div>
                                 <h3 class="placeName">ttt</h3>
                             </div>
@@ -56,7 +66,7 @@
                                 <img class="img" src="./img/ttt.png" alt="">
                             </div>
                         </div>
-                        <div class="content">
+                        <div class="content" id="국제관">
                             <div>
                                 <h3 class="placeName">ttt</h3>
                             </div>
