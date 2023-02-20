@@ -56,12 +56,12 @@ var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}),
         {
             place_url: 'https://apis.map.kakao.com/web/sample/categoryFromBounds/',
             place_name: '경영관',
-            latlng: new kakao.maps.LatLng(37.5884546, 126.9926780)
+            latlng: new kakao.maps.LatLng(37.5884546, 126.9926780),
         },
         {
             place_url: 'https://apis.map.kakao.com/web/sample/categoryFromBounds/',
             place_name: '호암관',
-            latlng: new kakao.maps.LatLng(37.5883551, 126.9920036)
+            latlng: new kakao.maps.LatLng(37.5883551, 126.9920036),
         },
         {
             place_url: 'https://apis.map.kakao.com/web/sample/categoryFromBounds/',
@@ -73,7 +73,7 @@ var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}),
             place_name: '학생회관',
             open:'영업중',
             distance: '440m',
-            latlng: new kakao.maps.LatLng(37.5874992, 126.9932746)
+            latlng: new kakao.maps.LatLng(37.5874992, 126.9932746),
         }
     ];
 
@@ -107,8 +107,14 @@ for (var i = 0; i < positions.length; i ++) {
     // 마커와 검색결과 항목을 클릭 했을 때
     // 장소정보를 표출하도록 클릭 이벤트를 등록합니다
     (function(marker, position) {
-        kakao.maps.event.addListener(marker, 'click', function() {
+        kakao.maps.event.addListener(marker, 'click', function() {  
+            for (var i=0; i<positions.length; i++)
+            {
+                document.getElementById(positions[i].place_name).className="content";
+            }
+            
             displayPlaceInfo(position);
+
         });
     })(marker, positions[i]);
     
@@ -116,10 +122,21 @@ for (var i = 0; i < positions.length; i ++) {
 
 // 클릭한 마커에 대한 장소 상세정보를 커스텀 오버레이로 표시하는 함수입니다
 function displayPlaceInfo (position) {
+    
+   
     var content = '<div class="infoBox">' +
                     '   <a class="title" href="' + position.place_url + '" target="_blank" title="' + position.place_name + '">' + position.place_name + '</a>';      
     contentNode.innerHTML = content;
+    
+    
     placeOverlay.setPosition(position.latlng);
-    placeOverlay.setMap(map);  
+    placeOverlay.setMap(map); 
+     
+//각각 정보에 맞는 id를 통해서 연결시키면 될 것 같습니다.
+    document.getElementById(position.place_name).className="greenBorder";
+    document.getElementById(position.place_name).scrollIntoView({behavior:"smooth"});
+
 }
+
+
 
