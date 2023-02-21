@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="./css/style.css"/>
     <link rel="stylesheet" href="./css/map.css"/>
     <link rel="stylesheet" href="./css/main.css"/>
-
-
     <title>SKKU WE</title>
 
 </head>
@@ -36,7 +34,7 @@
                     </div>
                     <div id="lstBtn">
                         <a href="listup.html">
-                            <img  src="./img/listBtn.png" style="float:right; margin-right: 10px; width: 26px; height: 22px;">
+                            <img  src="./img/lstBtn.png" style="float:right; margin-right: 10px;">
                         </a>
                     </div>
                     <div style="clear:both;"></div>
@@ -111,7 +109,10 @@
 
                     // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
                     var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
-                        contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
+                        contentNode = document.createElement('div'); // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
+
+                    // 마커를 클릭했을 때 적용될 id 객체입니다 +++추가된 부분
+                    var detailInfo=document.getElementsByClassName('content');
                     // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
                         positions = [
                             {
@@ -148,6 +149,15 @@
 
                     // 커스텀 오버레이 컨텐츠를 설정합니다
                     placeOverlay.setContent(contentNode);  
+                    // 적용된 css를 해제시키는 함수입니다. +++추가
+                    function initializeCss()
+                    {
+                        for (var i=0; i<positions.length; i++)
+                                {document.getElementById(positions[i].place_name).className="content";}
+                    }
+                    
+                                
+
 
                     // 엘리먼트에 이벤트 핸들러를 등록하는 함수입니다
                     function addEventHandle(target, type, callback) {
@@ -169,12 +179,9 @@
                         // 장소정보를 표출하도록 클릭 이벤트를 등록합니다
                         (function(marker, position) {
                             kakao.maps.event.addListener(marker, 'click', function() {  
-                                for (var i=0; i<positions.length; i++)
-                                {
-                                    document.getElementById(positions[i].place_name).className="content";
-                                }
-                                
+                                initializeCss()
                                 displayPlaceInfo(position);
+                                setGreenBorder(position);
 
                             });
                         })(marker, positions[i]);
@@ -194,9 +201,15 @@
                         placeOverlay.setMap(map); 
                         
                     //각각 정보에 맞는 id를 통해서 연결시키면 될 것 같습니다.
-                        content.innerHTML=document.getElementById(position.place_name).className="greenBorder";
-                        content.innerHTML=document.getElementById(position.place_name).scrollIntoView({behavior:"smooth"});
-                        
+                       
+                       
+                    }
+
+                    // css 및 스크롤 포커스 적용 함수입니다.     +추가 
+                    function setGreenBorder(position){
+                        var detail =  document.getElementById(position.place_name).className="greenBorder";  +
+                        document.getElementById(position.place_name).scrollIntoView({behavior:"smooth"});
+                        detailInfo.innerHTML=detail;
                     }
                 </script>
 
