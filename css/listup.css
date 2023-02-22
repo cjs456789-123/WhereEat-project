@@ -1,9 +1,9 @@
 .curationName{
     color:black;
     margin-top: 10px;
-    margin-left:0px;
-    margin-bottom: -5px;
-    text-align: center;
+    margin-left: 20px;
+    margin-bottom: -3px;
+    /*text-align: center;*/
 }
 .contentBox{
     display:flex;
