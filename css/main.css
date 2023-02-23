@@ -1,8 +1,12 @@
 .curationName{
   color:black;
   margin-left: 20px;
+  margin-right: 12px;
   margin-top: 10px;
   margin-bottom: -5px;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 .contentBox{
@@ -22,4 +26,10 @@
 
 .contentBox ::-webkit-scrollbar {
       display: none;
+}
+
+.mapBtn{
+  background-color: transparent;
+  border-color: transparent;
+  color: #7C7A7A;
 }
